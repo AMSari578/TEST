@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TestFlair -> WBL TMS webhook payloads",
+  "description": "Paste the matching sub-schema into the 'When an HTTP request is received' trigger of F01 (activity) or F03 (aiFinding). Payloads carry metadata and links only - never client source code.",
+  "$defs": {
+    "activity": {
+      "type": "object",
+      "required": ["externalId", "engineerEmail", "projectName", "activityType", "occurredOn"],
+      "properties": {
+        "externalId": {"type": "string", "description": "Unique id in TestFlair (commit SHA, build id, run id)"},
+        "engineerEmail": {"type": "string"},
+        "projectName": {"type": "string", "description": "Must equal wbl_project.wbl_name"},
+        "activityType": {"type": "string", "enum": ["Commit", "Build", "Test Run", "Task Update"]},
+        "occurredOn": {"type": "string", "format": "date-time"},
+        "dueDate": {"type": ["string", "null"], "format": "date-time"},
+        "result": {"type": "string", "enum": ["Success", "Failed", "Not Applicable"]},
+        "url": {"type": "string"},
+        "title": {"type": "string"},
+        "details": {"type": "string", "description": "Short summary, e.g. '12 passed, 3 failed'. No code."}
+      }
+    },
+    "aiFinding": {
+      "type": "object",
+      "required": ["externalId", "engineerEmail", "projectName", "commitUrl", "dodItem", "reason"],
+      "properties": {
+        "externalId": {"type": "string", "description": "Unique id of the finding"},
+        "engineerEmail": {"type": "string"},
+        "projectName": {"type": "string"},
+        "commitUrl": {"type": "string"},
+        "dodItem": {"type": "string", "description": "The Definition of Done item that is not met"},
+        "reason": {"type": "string", "description": "Why the agent thinks the item is not met"},
+        "evidence": {"type": "string", "description": "File / test case names or a short quote"},
+        "severity": {"type": "string", "enum": ["Low", "Medium", "High"]}
+      }
+    }
+  },
+  "examples": [
+    {
+      "kind": "aiFinding",
+      "externalId": "tf-finding-8812",
+      "engineerEmail": "engineer@example.com",
+      "projectName": "Simulated - Banking QA",
+      "commitUrl": "https://git.example.com/qa/banking/commit/3f2a9c1",
+      "dodItem": "Each test case has a short description",
+      "reason": "4 new test cases in login_tests.py have no description",
+      "evidence": "test_login_ok, test_login_locked, test_login_expired, test_login_mfa",
+      "severity": "Medium"
+    }
+  ]
+}

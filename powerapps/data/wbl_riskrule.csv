@@ -1,0 +1,8 @@
+wbl_name,wbl_metric,wbl_operator,wbl_threshold,wbl_resultstatus,wbl_priority,wbl_isactive,wbl_agreedbymgmt,wbl_description
+Red - escalated flags,Escalated flags,>=,1,High risk,1,true,false,DRAFT - SME and management to agree
+Red - attendance below 75%,Attendance rate %,<,75,High risk,2,true,false,DRAFT - SME and management to agree
+Red - skill gap of 2+ levels,Max skill gap,>=,2,High risk,3,true,false,DRAFT - SME and management to agree
+Amber - 2+ open flags,Open flags,>=,2,At risk,10,true,false,DRAFT - SME and management to agree
+Amber - attendance below 90%,Attendance rate %,<,90,At risk,11,true,false,DRAFT - SME and management to agree
+Amber - punctuality below 85%,Punctuality rate %,<,85,At risk,12,true,false,DRAFT - SME and management to agree
+Amber - average score below 70%,Average assessment score,<,70,At risk,13,true,false,DRAFT - SME and management to agree

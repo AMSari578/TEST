@@ -1,0 +1,42 @@
+wbl_name,wbl_english,wbl_arabic
+app.title,WBL Training,تدريب العمل التطبيقي
+nav.home,Home,الرئيسية
+nav.worklog,Log my work,تسجيل عملي
+nav.progress,My progress,تقدّمي
+nav.certificates,My certificates,شهاداتي
+nav.flags,Flags,التنبيهات
+nav.team,My engineers,مهندسيّ
+nav.sessions,My sessions,جلساتي
+nav.assess,Record assessment,تسجيل تقييم
+lang.toggle,العربية,English
+worklog.sprint,Sprint,السبرنت
+worklog.date,Date,التاريخ
+worklog.hours,Hours,الساعات
+worklog.summary,What did you do?,ماذا أنجزت؟
+worklog.link,Link (optional),رابط (اختياري)
+worklog.save,Save log,حفظ السجل
+worklog.saved,Work log saved,تم حفظ سجل العمل
+worklog.auto,This project sends data automatically - no log needed,هذا المشروع يرسل البيانات تلقائياً - لا حاجة للتسجيل
+progress.skill,Skill,المهارة
+progress.target,Target,المستهدف
+progress.approved,Approved,المعتمد
+progress.gap,Gap,الفجوة
+flags.accept,Accept,قبول
+flags.dismiss,Dismiss,رفض
+flags.resolve,Resolve,تم الحل
+flags.escalate,Escalate,تصعيد
+flags.reason,Reason,السبب
+flags.reasonRequired,A reason is required to dismiss a flag,يجب كتابة سبب لرفض التنبيه
+flags.evidence,Evidence,الدليل
+flags.dod,Definition of Done item,بند تعريف الإنجاز
+flags.open,Open flags,التنبيهات المفتوحة
+risk.ontrack,On track,على المسار
+risk.atrisk,At risk,معرّض للخطر
+risk.high,High risk,خطر مرتفع
+session.confirm,Confirm result,تأكيد النتيجة
+session.cannotConfirm,Attendance and score are needed before confirming,يلزم وجود الحضور والدرجة قبل التأكيد
+assess.type,Assessment type,نوع التقييم
+assess.simulatedOnly,Full workflow assessments must use a simulated project,تقييم سير العمل الكامل يجب أن يكون على مشروع محاكى
+assess.save,Save result,حفظ النتيجة
+common.cancel,Cancel,إلغاء
+common.saved,Saved,تم الحفظ

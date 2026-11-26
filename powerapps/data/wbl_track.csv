@@ -1,0 +1,4 @@
+wbl_name,wbl_namear,wbl_code,wbl_departmentid,wbl_certificateenabled,wbl_isactive,wbl_description
+Quality Assurance,ضمان الجودة,QA,Nearshore,true,true,QA track - Phase 1
+Artificial Intelligence,الذكاء الاصطناعي,AI,Nearshore,true,true,AI track - Phase 1
+General Skills,المهارات العامة,GEN,Nearshore,false,true,Generic attributes for all engineers - no certificate

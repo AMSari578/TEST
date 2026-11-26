@@ -1,0 +1,12 @@
+wbl_name,wbl_namear,wbl_code,wbl_sfiacode,wbl_category,wbl_description
+Functional testing,الاختبار الوظيفي,QA-TEST,TEST,Technical skill,DRAFT - SME to confirm against SFIA 9
+Non-functional testing,الاختبار غير الوظيفي,QA-NFTS,NFTS,Technical skill,DRAFT - SME to confirm against SFIA 9
+Programming / software development,البرمجة وتطوير البرمجيات,GEN-PROG,PROG,Technical skill,DRAFT - SME to confirm against SFIA 9
+Machine learning,تعلم الآلة,AI-MLNG,MLNG,Technical skill,DRAFT - SME to confirm against SFIA 9
+Data science,علم البيانات,AI-DATS,DATS,Technical skill,DRAFT - SME to confirm against SFIA 9
+Data engineering,هندسة البيانات,AI-DENG,DENG,Technical skill,DRAFT - SME to confirm against SFIA 9
+Autonomy,الاستقلالية,GA-AUT,,Generic attribute,SFIA generic attribute
+Influence,التأثير,GA-INF,,Generic attribute,SFIA generic attribute
+Complexity,التعقيد,GA-CPX,,Generic attribute,SFIA generic attribute
+Knowledge,المعرفة,GA-KNW,,Generic attribute,SFIA generic attribute
+Business skills,مهارات الأعمال,GA-BUS,,Business skill,"Collaboration, communication, problem-solving, security/privacy/ethics, etc."

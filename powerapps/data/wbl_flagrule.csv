@@ -1,0 +1,8 @@
+wbl_name,wbl_namear,wbl_ruletype,wbl_flagcategory,wbl_severity,wbl_threshold,wbl_thresholdunit,wbl_isactive,wbl_description
+Late commit,Commit متأخر,Late commit,Performance,Medium,0,hours after due date,true,Commit made after the task due date
+Inactivity,عدم نشاط,Inactivity,Performance,Medium,3,working days,true,No commits / activity / work logs for N working days during an active sprint
+Failed builds,Build فاشل,Failed build,Performance,High,2,failures in 24h,true,N or more failed builds within 24 hours
+Failed tests (TestFlair),اختبارات فاشلة,Failed tests,Performance,Medium,1,failed runs,true,Failed test runs reported by TestFlair
+Missing work log,سجل عمل مفقود,Missing work log,Performance,Low,2,working days,true,Project has no tool integration and engineer logged nothing for N working days
+Absence from session,غياب عن جلسة,Absence,Conduct,Medium,1,absences,false,Conduct flag - disabled until stakeholders approve conduct flags
+Late to session,تأخر عن جلسة,Late attendance,Conduct,Low,2,late arrivals per month,false,Conduct flag - disabled until stakeholders approve conduct flags

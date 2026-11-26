@@ -1,0 +1,412 @@
+{
+  "publisherPrefix": "wbl",
+  "solutionUniqueName": "WBLTrainingManagement",
+  "solutionDisplayName": "WBL Training Management System (Tawwer)",
+  "notes": "Single source of truth for the Dataverse data model. Used by tools/dataverse_schema.py to generate docs and to create the tables through the Dataverse Web API.",
+
+  "choices": [
+    {"name": "wbl_projecttype", "en": "Project Type", "ar": "نوع المشروع", "options": [["Real", "حقيقي"], ["Simulated", "محاكى"]]},
+    {"name": "wbl_toolintegration", "en": "Tool Integration", "ar": "تكامل الأداة", "options": [["TestFlair", "TestFlair"], ["Jira", "Jira"], ["Azure DevOps", "Azure DevOps"], ["Git", "Git"], ["None (manual logs)", "لا يوجد (سجلات يدوية)"]]},
+    {"name": "wbl_sprintstatus", "en": "Sprint Status", "ar": "حالة السبرنت", "options": [["Planned", "مخطط"], ["Active", "نشط"], ["Closed", "مغلق"]]},
+    {"name": "wbl_worksource", "en": "Work Data Source", "ar": "مصدر بيانات العمل", "options": [["Manual", "يدوي"], ["TestFlair", "TestFlair"], ["Jira", "Jira"], ["Azure DevOps", "Azure DevOps"], ["Git", "Git"]]},
+    {"name": "wbl_activitytype", "en": "Activity Type", "ar": "نوع النشاط", "options": [["Commit", "Commit"], ["Build", "Build"], ["Test Run", "تشغيل اختبارات"], ["Task Update", "تحديث مهمة"]]},
+    {"name": "wbl_activityresult", "en": "Activity Result", "ar": "نتيجة النشاط", "options": [["Success", "نجاح"], ["Failed", "فشل"], ["Not Applicable", "لا ينطبق"]]},
+    {"name": "wbl_flagsource", "en": "Flag Source", "ar": "مصدر التنبيه", "options": [["Rule check", "فحص قاعدة"], ["AI review", "مراجعة الذكاء الاصطناعي"], ["Pattern detection", "اكتشاف الأنماط"]]},
+    {"name": "wbl_flagcategory", "en": "Flag Category", "ar": "فئة التنبيه", "options": [["Performance", "الأداء"], ["Conduct", "السلوك المهني"]]},
+    {"name": "wbl_severity", "en": "Severity", "ar": "الخطورة", "options": [["Low", "منخفضة"], ["Medium", "متوسطة"], ["High", "عالية"]]},
+    {"name": "wbl_flagstatus", "en": "Flag Status", "ar": "حالة التنبيه", "options": [["New", "جديد"], ["Accepted", "مقبول"], ["Dismissed", "مرفوض"], ["Resolved", "تم الحل"], ["Escalated", "مُصعّد"]]},
+    {"name": "wbl_ruletype", "en": "Rule Type", "ar": "نوع القاعدة", "options": [["Late commit", "Commit متأخر"], ["Inactivity", "عدم نشاط"], ["Failed build", "Build فاشل"], ["Failed tests", "اختبارات فاشلة"], ["Missing work log", "سجل عمل مفقود"], ["Absence", "غياب"], ["Late attendance", "تأخر في الحضور"]]},
+    {"name": "wbl_skillcategory", "en": "Skill Category", "ar": "فئة المهارة", "options": [["Technical skill", "مهارة تقنية"], ["Generic attribute", "سمة عامة"], ["Business skill", "مهارة أعمال"]]},
+    {"name": "wbl_sessiontype", "en": "Session Type", "ar": "نوع الجلسة", "options": [["General Skills", "مهارات عامة"], ["Track Training", "تدريب المسار"], ["Final Assessment", "التقييم النهائي"]]},
+    {"name": "wbl_deliveryplatform", "en": "Delivery Platform", "ar": "منصة التقديم", "options": [["NTG Connect", "NTG Connect"], ["Microsoft Teams", "Microsoft Teams"], ["In person", "حضوري"], ["Other", "أخرى"]]},
+    {"name": "wbl_attendancestatus", "en": "Attendance Status", "ar": "حالة الحضور", "options": [["Present", "حاضر"], ["Late", "متأخر"], ["Absent", "غائب"], ["Excused", "معذور"]]},
+    {"name": "wbl_datasource", "en": "Data Source", "ar": "مصدر البيانات", "options": [["Conference platform", "منصة المؤتمرات"], ["Manual", "يدوي"], ["External service", "خدمة خارجية (Kahoot)"]]},
+    {"name": "wbl_assessmenttype", "en": "Assessment Type", "ar": "نوع التقييم", "options": [["Standardized", "معياري"], ["Observed", "بالملاحظة"], ["Full workflow", "سير عمل كامل"], ["External certification", "شهادة خارجية (داعمة فقط)"]]},
+    {"name": "wbl_approvaldecision", "en": "Approval Decision", "ar": "قرار الاعتماد", "options": [["Approved", "معتمد"], ["Further review requested", "طلب مراجعة إضافية"]]},
+    {"name": "wbl_riskstatus", "en": "Risk Status", "ar": "حالة المخاطر", "options": [["On track", "على المسار"], ["At risk", "معرّض للخطر"], ["High risk", "خطر مرتفع"]]},
+    {"name": "wbl_riskmetric", "en": "Risk Metric", "ar": "مؤشر المخاطر", "options": [["Open flags", "التنبيهات المفتوحة"], ["Escalated flags", "التنبيهات المصعّدة"], ["Attendance rate %", "نسبة الحضور %"], ["Punctuality rate %", "نسبة الالتزام بالوقت %"], ["Average assessment score", "متوسط درجات التقييم"], ["Max skill gap", "أكبر فجوة مهارة"]]},
+    {"name": "wbl_operator", "en": "Operator", "ar": "المعامل", "options": [[">=", ">="], [">", ">"], ["<=", "<="], ["<", "<"], ["=", "="]]},
+    {"name": "wbl_toolkititemtype", "en": "Toolkit Item Type", "ar": "نوع عنصر الأدوات", "options": [["Software", "برنامج"], ["Licence", "رخصة"], ["Hardware", "جهاز"], ["Access / Account", "صلاحية / حساب"], ["Material", "مادة تدريبية"]]},
+    {"name": "wbl_deliverymode", "en": "Delivery Mode", "ar": "طريقة التقديم", "options": [["Online", "عن بعد"], ["Onsite", "حضوري"], ["Hybrid", "مدمج"]]},
+    {"name": "wbl_readiness", "en": "Readiness", "ar": "الجاهزية", "options": [["Not ready", "غير جاهز"], ["In progress", "قيد التجهيز"], ["Ready", "جاهز"]]},
+    {"name": "wbl_certificatestatus", "en": "Certificate Status", "ar": "حالة الشهادة", "options": [["Draft", "مسودة"], ["Issued", "صادرة"], ["Revoked", "ملغاة"]]}
+  ],
+
+  "tables": [
+    {
+      "name": "wbl_department", "en": "Department", "enPlural": "Departments", "ar": "إدارة", "arPlural": "الإدارات",
+      "ownership": "OrganizationOwned", "audit": false, "primary": ["Name", "الاسم"],
+      "br": ["BR-09", "US-15"],
+      "columns": [
+        {"name": "wbl_namear", "type": "text", "en": "Name (Arabic)", "ar": "الاسم بالعربي"},
+        {"name": "wbl_code", "type": "text", "en": "Code", "ar": "الرمز", "max": 20}
+      ]
+    },
+    {
+      "name": "wbl_track", "en": "Track", "enPlural": "Tracks", "ar": "مسار", "arPlural": "المسارات",
+      "ownership": "OrganizationOwned", "audit": true, "primary": ["Name", "الاسم"],
+      "br": ["BR-01", "BR-02", "BR-10"],
+      "columns": [
+        {"name": "wbl_namear", "type": "text", "en": "Name (Arabic)", "ar": "الاسم بالعربي"},
+        {"name": "wbl_code", "type": "text", "en": "Code", "ar": "الرمز", "max": 20, "required": true},
+        {"name": "wbl_departmentid", "type": "lookup", "target": "wbl_department", "en": "Department", "ar": "الإدارة"},
+        {"name": "wbl_certificateenabled", "type": "bool", "en": "Issues Certificate", "ar": "يمنح شهادة"},
+        {"name": "wbl_isactive", "type": "bool", "en": "Active", "ar": "نشط"},
+        {"name": "wbl_description", "type": "memo", "en": "Description", "ar": "الوصف"}
+      ]
+    },
+    {
+      "name": "wbl_skill", "en": "Skill", "enPlural": "Skills", "ar": "مهارة", "arPlural": "المهارات (معيار NTG)",
+      "ownership": "OrganizationOwned", "audit": true, "primary": ["Name", "الاسم"],
+      "br": ["BR-02", "BO-03"],
+      "columns": [
+        {"name": "wbl_namear", "type": "text", "en": "Name (Arabic)", "ar": "الاسم بالعربي"},
+        {"name": "wbl_code", "type": "text", "en": "Code", "ar": "الرمز", "max": 20, "required": true},
+        {"name": "wbl_sfiacode", "type": "text", "en": "SFIA 9 Code", "ar": "رمز SFIA 9", "max": 20},
+        {"name": "wbl_category", "type": "choice", "choice": "wbl_skillcategory", "en": "Category", "ar": "الفئة"},
+        {"name": "wbl_description", "type": "memo", "en": "Description", "ar": "الوصف"}
+      ]
+    },
+    {
+      "name": "wbl_skillleveldescriptor", "en": "Skill Level Descriptor", "enPlural": "Skill Level Descriptors", "ar": "وصف مستوى المهارة", "arPlural": "أوصاف مستويات المهارات",
+      "ownership": "OrganizationOwned", "audit": true, "primary": ["Name", "الاسم"],
+      "br": ["BR-02"],
+      "columns": [
+        {"name": "wbl_skillid", "type": "lookup", "target": "wbl_skill", "en": "Skill", "ar": "المهارة", "required": true},
+        {"name": "wbl_level", "type": "int", "min": 1, "max": 7, "en": "Level (1-7)", "ar": "المستوى (1-7)", "required": true},
+        {"name": "wbl_descriptor", "type": "memo", "en": "Descriptor", "ar": "الوصف"},
+        {"name": "wbl_descriptorar", "type": "memo", "en": "Descriptor (Arabic)", "ar": "الوصف بالعربي"}
+      ]
+    },
+    {
+      "name": "wbl_roleprofileitem", "en": "Role Profile Item", "enPlural": "Role Profile Items", "ar": "عنصر الملف الوظيفي", "arPlural": "الملف الوظيفي (المستويات المستهدفة)",
+      "ownership": "OrganizationOwned", "audit": true, "primary": ["Name", "الاسم"],
+      "br": ["BR-02", "US-06"],
+      "columns": [
+        {"name": "wbl_trackid", "type": "lookup", "target": "wbl_track", "en": "Track", "ar": "المسار", "required": true},
+        {"name": "wbl_skillid", "type": "lookup", "target": "wbl_skill", "en": "Skill", "ar": "المهارة", "required": true},
+        {"name": "wbl_targetlevel", "type": "int", "min": 1, "max": 7, "en": "Target Level", "ar": "المستوى المستهدف", "required": true},
+        {"name": "wbl_notes", "type": "memo", "en": "Notes", "ar": "ملاحظات"}
+      ]
+    },
+    {
+      "name": "wbl_trainingcalendar", "en": "Training Calendar", "enPlural": "Training Calendars", "ar": "تقويم التدريب", "arPlural": "تقاويم التدريب",
+      "ownership": "OrganizationOwned", "audit": false, "primary": ["Name", "الاسم"],
+      "br": ["Scope: annual training calendar"],
+      "columns": [
+        {"name": "wbl_year", "type": "int", "min": 2025, "max": 2100, "en": "Year", "ar": "السنة", "required": true},
+        {"name": "wbl_trackid", "type": "lookup", "target": "wbl_track", "en": "Track", "ar": "المسار"},
+        {"name": "wbl_ispublished", "type": "bool", "en": "Published", "ar": "منشور"}
+      ]
+    },
+    {
+      "name": "wbl_engineer", "en": "Engineer", "enPlural": "Engineers", "ar": "مهندس", "arPlural": "المهندسون",
+      "ownership": "UserOwned", "audit": true, "primary": ["Full Name", "الاسم الكامل"],
+      "br": ["BR-01", "BR-16", "US-02", "US-08", "US-14", "Constraint: NDA"],
+      "columns": [
+        {"name": "wbl_namear", "type": "text", "en": "Full Name (Arabic)", "ar": "الاسم الكامل بالعربي"},
+        {"name": "wbl_email", "type": "email", "en": "Email", "ar": "البريد الإلكتروني", "required": true},
+        {"name": "wbl_employeeno", "type": "text", "en": "Employee No.", "ar": "الرقم الوظيفي", "max": 30},
+        {"name": "wbl_useraccountid", "type": "lookup", "target": "systemuser", "en": "User Account", "ar": "حساب المستخدم", "required": true},
+        {"name": "wbl_supervisorid", "type": "lookup", "target": "systemuser", "en": "Supervisor", "ar": "المشرف", "required": true},
+        {"name": "wbl_trackid", "type": "lookup", "target": "wbl_track", "en": "Track", "ar": "المسار", "required": true},
+        {"name": "wbl_departmentid", "type": "lookup", "target": "wbl_department", "en": "Department", "ar": "الإدارة"},
+        {"name": "wbl_calendarid", "type": "lookup", "target": "wbl_trainingcalendar", "en": "Training Calendar (Intake)", "ar": "تقويم التدريب (الدفعة)"},
+        {"name": "wbl_startdate", "type": "date", "en": "Start Date", "ar": "تاريخ البدء"},
+        {"name": "wbl_ndasigned", "type": "bool", "en": "NDA Signed", "ar": "تم توقيع اتفاقية عدم الإفصاح"},
+        {"name": "wbl_ndasignedon", "type": "date", "en": "NDA Signed On", "ar": "تاريخ توقيع الاتفاقية"},
+        {"name": "wbl_securityapproved", "type": "bool", "en": "Security Permissions Approved", "ar": "تمت الموافقة على الصلاحيات الأمنية"},
+        {"name": "wbl_sourcecodeaccess", "type": "bool", "en": "Source Code Access Approved", "ar": "موافقة الإدارة على الوصول للكود"},
+        {"name": "wbl_riskstatus", "type": "choice", "choice": "wbl_riskstatus", "en": "Risk Status", "ar": "حالة المخاطر"},
+        {"name": "wbl_riskreason", "type": "memo", "en": "Risk Reason", "ar": "سبب حالة المخاطر"},
+        {"name": "wbl_riskupdatedon", "type": "datetime", "en": "Risk Updated On", "ar": "تاريخ تحديث المخاطر"}
+      ]
+    },
+    {
+      "name": "wbl_project", "en": "Project", "enPlural": "Projects", "ar": "مشروع", "arPlural": "المشاريع",
+      "ownership": "OrganizationOwned", "audit": true, "primary": ["Name", "الاسم"],
+      "br": ["BR-03", "BR-04", "US-13", "Constraint: client data"],
+      "columns": [
+        {"name": "wbl_projecttype", "type": "choice", "choice": "wbl_projecttype", "en": "Project Type", "ar": "نوع المشروع", "required": true},
+        {"name": "wbl_client", "type": "text", "en": "Client", "ar": "العميل"},
+        {"name": "wbl_trackid", "type": "lookup", "target": "wbl_track", "en": "Track", "ar": "المسار"},
+        {"name": "wbl_definitionofdone", "type": "memo", "en": "Definition of Done", "ar": "تعريف الإنجاز (DoD)", "max": 20000},
+        {"name": "wbl_toolintegration", "type": "choice", "choice": "wbl_toolintegration", "en": "Tool Integration", "ar": "تكامل الأداة"},
+        {"name": "wbl_clientpermitsdata", "type": "bool", "en": "Client Permits Tool Data Use", "ar": "العميل يسمح باستخدام بيانات الأداة"},
+        {"name": "wbl_codestaysinntg", "type": "bool", "en": "Client Code Must Stay Inside NTG", "ar": "يجب أن يبقى كود العميل داخل NTG"},
+        {"name": "wbl_repositoryurl", "type": "url", "en": "Repository URL", "ar": "رابط المستودع"},
+        {"name": "wbl_startdate", "type": "date", "en": "Start Date", "ar": "تاريخ البدء"},
+        {"name": "wbl_enddate", "type": "date", "en": "End Date", "ar": "تاريخ الانتهاء"}
+      ]
+    },
+    {
+      "name": "wbl_projectassignment", "en": "Project Assignment", "enPlural": "Project Assignments", "ar": "إسناد مشروع", "arPlural": "إسنادات المشاريع",
+      "ownership": "UserOwned", "audit": true, "primary": ["Name", "الاسم"],
+      "br": ["BR-01"],
+      "columns": [
+        {"name": "wbl_engineerid", "type": "lookup", "target": "wbl_engineer", "en": "Engineer", "ar": "المهندس", "required": true},
+        {"name": "wbl_projectid", "type": "lookup", "target": "wbl_project", "en": "Project", "ar": "المشروع", "required": true},
+        {"name": "wbl_role", "type": "text", "en": "Role in Project", "ar": "الدور في المشروع"},
+        {"name": "wbl_fromdate", "type": "date", "en": "From", "ar": "من"},
+        {"name": "wbl_todate", "type": "date", "en": "To", "ar": "إلى"}
+      ]
+    },
+    {
+      "name": "wbl_sprint", "en": "Sprint", "enPlural": "Sprints", "ar": "سبرنت", "arPlural": "السبرنتات",
+      "ownership": "OrganizationOwned", "audit": false, "primary": ["Name", "الاسم"],
+      "br": ["BR-03", "BR-08"],
+      "columns": [
+        {"name": "wbl_projectid", "type": "lookup", "target": "wbl_project", "en": "Project", "ar": "المشروع", "required": true},
+        {"name": "wbl_sprintnumber", "type": "int", "min": 1, "max": 1000, "en": "Sprint No.", "ar": "رقم السبرنت"},
+        {"name": "wbl_startdate", "type": "date", "en": "Start Date", "ar": "تاريخ البدء", "required": true},
+        {"name": "wbl_enddate", "type": "date", "en": "End Date", "ar": "تاريخ الانتهاء", "required": true},
+        {"name": "wbl_sprintstatus", "type": "choice", "choice": "wbl_sprintstatus", "en": "Sprint Status", "ar": "حالة السبرنت"}
+      ]
+    },
+    {
+      "name": "wbl_worklog", "en": "Work Log", "enPlural": "Work Logs", "ar": "سجل عمل", "arPlural": "سجلات العمل",
+      "ownership": "UserOwned", "audit": true, "primary": ["Title", "العنوان"],
+      "br": ["BR-03", "US-01"],
+      "columns": [
+        {"name": "wbl_engineerid", "type": "lookup", "target": "wbl_engineer", "en": "Engineer", "ar": "المهندس", "required": true},
+        {"name": "wbl_sprintid", "type": "lookup", "target": "wbl_sprint", "en": "Sprint", "ar": "السبرنت", "required": true},
+        {"name": "wbl_logdate", "type": "date", "en": "Log Date", "ar": "التاريخ", "required": true},
+        {"name": "wbl_hours", "type": "decimal", "min": 0, "max": 24, "en": "Hours", "ar": "الساعات"},
+        {"name": "wbl_summary", "type": "memo", "en": "What I did", "ar": "ماذا أنجزت"},
+        {"name": "wbl_taskreference", "type": "text", "en": "Task Reference", "ar": "مرجع المهمة"},
+        {"name": "wbl_linkurl", "type": "url", "en": "Link (commit / PR / document)", "ar": "رابط (commit / PR / مستند)"},
+        {"name": "wbl_source", "type": "choice", "choice": "wbl_worksource", "en": "Source", "ar": "المصدر"}
+      ]
+    },
+    {
+      "name": "wbl_workactivity", "en": "Work Activity", "enPlural": "Work Activities", "ar": "نشاط عمل", "arPlural": "أنشطة العمل",
+      "ownership": "UserOwned", "audit": false, "primary": ["Title", "العنوان"],
+      "br": ["BR-03", "BR-04", "BR-05"],
+      "columns": [
+        {"name": "wbl_engineerid", "type": "lookup", "target": "wbl_engineer", "en": "Engineer", "ar": "المهندس", "required": true},
+        {"name": "wbl_sprintid", "type": "lookup", "target": "wbl_sprint", "en": "Sprint", "ar": "السبرنت"},
+        {"name": "wbl_activitytype", "type": "choice", "choice": "wbl_activitytype", "en": "Activity Type", "ar": "نوع النشاط", "required": true},
+        {"name": "wbl_occurredon", "type": "datetime", "en": "Occurred On", "ar": "وقت الحدوث", "required": true},
+        {"name": "wbl_duedate", "type": "datetime", "en": "Due Date", "ar": "تاريخ الاستحقاق"},
+        {"name": "wbl_result", "type": "choice", "choice": "wbl_activityresult", "en": "Result", "ar": "النتيجة"},
+        {"name": "wbl_url", "type": "url", "en": "Link", "ar": "الرابط"},
+        {"name": "wbl_externalid", "type": "text", "en": "External ID", "ar": "المعرّف الخارجي"},
+        {"name": "wbl_source", "type": "choice", "choice": "wbl_worksource", "en": "Source", "ar": "المصدر"},
+        {"name": "wbl_details", "type": "memo", "en": "Details", "ar": "التفاصيل"}
+      ]
+    },
+    {
+      "name": "wbl_flagrule", "en": "Flag Rule", "enPlural": "Flag Rules", "ar": "قاعدة تنبيه", "arPlural": "قواعد التنبيه",
+      "ownership": "OrganizationOwned", "audit": true, "primary": ["Name", "الاسم"],
+      "br": ["BR-04", "BR-10", "Risk: false flags"],
+      "columns": [
+        {"name": "wbl_namear", "type": "text", "en": "Name (Arabic)", "ar": "الاسم بالعربي"},
+        {"name": "wbl_ruletype", "type": "choice", "choice": "wbl_ruletype", "en": "Rule Type", "ar": "نوع القاعدة", "required": true},
+        {"name": "wbl_flagcategory", "type": "choice", "choice": "wbl_flagcategory", "en": "Category", "ar": "الفئة"},
+        {"name": "wbl_severity", "type": "choice", "choice": "wbl_severity", "en": "Severity", "ar": "الخطورة"},
+        {"name": "wbl_threshold", "type": "int", "min": 0, "max": 1000, "en": "Threshold", "ar": "الحد"},
+        {"name": "wbl_thresholdunit", "type": "text", "en": "Threshold Unit", "ar": "وحدة الحد"},
+        {"name": "wbl_trackid", "type": "lookup", "target": "wbl_track", "en": "Track (blank = all)", "ar": "المسار (فارغ = الكل)"},
+        {"name": "wbl_isactive", "type": "bool", "en": "Active", "ar": "نشطة"},
+        {"name": "wbl_description", "type": "memo", "en": "Description", "ar": "الوصف"}
+      ]
+    },
+    {
+      "name": "wbl_flag", "en": "Flag", "enPlural": "Flags", "ar": "تنبيه", "arPlural": "التنبيهات",
+      "ownership": "UserOwned", "audit": true, "primary": ["Title", "العنوان"],
+      "br": ["BR-04", "BR-05", "BR-06", "BR-11", "US-04", "US-05"],
+      "columns": [
+        {"name": "wbl_engineerid", "type": "lookup", "target": "wbl_engineer", "en": "Engineer", "ar": "المهندس", "required": true},
+        {"name": "wbl_sprintid", "type": "lookup", "target": "wbl_sprint", "en": "Sprint", "ar": "السبرنت"},
+        {"name": "wbl_ruleid", "type": "lookup", "target": "wbl_flagrule", "en": "Rule", "ar": "القاعدة"},
+        {"name": "wbl_workactivityid", "type": "lookup", "target": "wbl_workactivity", "en": "Work Activity", "ar": "نشاط العمل"},
+        {"name": "wbl_flagsource", "type": "choice", "choice": "wbl_flagsource", "en": "Source", "ar": "المصدر", "required": true},
+        {"name": "wbl_flagcategory", "type": "choice", "choice": "wbl_flagcategory", "en": "Category", "ar": "الفئة"},
+        {"name": "wbl_severity", "type": "choice", "choice": "wbl_severity", "en": "Severity", "ar": "الخطورة"},
+        {"name": "wbl_flagstatus", "type": "choice", "choice": "wbl_flagstatus", "en": "Flag Status", "ar": "حالة التنبيه", "required": true},
+        {"name": "wbl_detectedon", "type": "datetime", "en": "Detected On", "ar": "تاريخ الاكتشاف"},
+        {"name": "wbl_evidence", "type": "memo", "en": "Evidence", "ar": "الدليل", "max": 20000},
+        {"name": "wbl_evidenceurl", "type": "url", "en": "Evidence Link (commit)", "ar": "رابط الدليل (commit)"},
+        {"name": "wbl_doditem", "type": "memo", "en": "Definition of Done Item", "ar": "بند تعريف الإنجاز"},
+        {"name": "wbl_reason", "type": "memo", "en": "Reason (from rule / AI)", "ar": "السبب (من القاعدة / الذكاء الاصطناعي)"},
+        {"name": "wbl_decisionreason", "type": "memo", "en": "Decision Reason", "ar": "سبب القرار"},
+        {"name": "wbl_decidedbyid", "type": "lookup", "target": "systemuser", "en": "Decided By", "ar": "صاحب القرار"},
+        {"name": "wbl_decidedon", "type": "datetime", "en": "Decided On", "ar": "تاريخ القرار"}
+      ]
+    },
+    {
+      "name": "wbl_flagdecision", "en": "Flag Decision", "enPlural": "Flag Decisions", "ar": "قرار تنبيه", "arPlural": "سجل قرارات التنبيهات",
+      "ownership": "UserOwned", "audit": true, "primary": ["Title", "العنوان"],
+      "br": ["BR-11", "US-05", "US-16"],
+      "columns": [
+        {"name": "wbl_flagid", "type": "lookup", "target": "wbl_flag", "en": "Flag", "ar": "التنبيه", "required": true},
+        {"name": "wbl_newstatus", "type": "choice", "choice": "wbl_flagstatus", "en": "New Status", "ar": "الحالة الجديدة"},
+        {"name": "wbl_reason", "type": "memo", "en": "Reason", "ar": "السبب"},
+        {"name": "wbl_decidedbyid", "type": "lookup", "target": "systemuser", "en": "Decided By", "ar": "صاحب القرار"},
+        {"name": "wbl_decidedon", "type": "datetime", "en": "Decided On", "ar": "تاريخ القرار"}
+      ]
+    },
+    {
+      "name": "wbl_session", "en": "Training Session", "enPlural": "Training Sessions", "ar": "جلسة تدريبية", "arPlural": "الجلسات التدريبية",
+      "ownership": "OrganizationOwned", "audit": true, "primary": ["Title", "العنوان"],
+      "br": ["BR-12", "BR-13", "Scope: annual calendar", "US-10"],
+      "columns": [
+        {"name": "wbl_titlear", "type": "text", "en": "Title (Arabic)", "ar": "العنوان بالعربي"},
+        {"name": "wbl_sessiontype", "type": "choice", "choice": "wbl_sessiontype", "en": "Session Type", "ar": "نوع الجلسة", "required": true},
+        {"name": "wbl_trackid", "type": "lookup", "target": "wbl_track", "en": "Track (blank for General Skills)", "ar": "المسار (فارغ للمهارات العامة)"},
+        {"name": "wbl_calendarid", "type": "lookup", "target": "wbl_trainingcalendar", "en": "Training Calendar", "ar": "تقويم التدريب"},
+        {"name": "wbl_instructorid", "type": "lookup", "target": "systemuser", "en": "Instructor / Trainer", "ar": "المدرب", "required": true},
+        {"name": "wbl_topic", "type": "memo", "en": "Topic", "ar": "الموضوع"},
+        {"name": "wbl_startson", "type": "datetime", "en": "Starts On", "ar": "يبدأ في", "required": true},
+        {"name": "wbl_endson", "type": "datetime", "en": "Ends On", "ar": "ينتهي في"},
+        {"name": "wbl_platform", "type": "choice", "choice": "wbl_deliveryplatform", "en": "Platform", "ar": "المنصة"},
+        {"name": "wbl_meetingurl", "type": "url", "en": "Meeting Link", "ar": "رابط الاجتماع"},
+        {"name": "wbl_passmark", "type": "decimal", "min": 0, "max": 100, "en": "Pass Mark %", "ar": "درجة النجاح %"},
+        {"name": "wbl_latethreshold", "type": "int", "min": 0, "max": 240, "en": "Late After (minutes)", "ar": "يعتبر متأخراً بعد (دقائق)"}
+      ]
+    },
+    {
+      "name": "wbl_attendance", "en": "Session Attendance", "enPlural": "Session Attendances", "ar": "حضور جلسة", "arPlural": "الحضور ونتائج الجلسات",
+      "ownership": "UserOwned", "audit": true, "primary": ["Title", "العنوان"],
+      "br": ["BR-12", "BR-13", "US-10", "US-11"],
+      "columns": [
+        {"name": "wbl_sessionid", "type": "lookup", "target": "wbl_session", "en": "Session", "ar": "الجلسة", "required": true},
+        {"name": "wbl_engineerid", "type": "lookup", "target": "wbl_engineer", "en": "Engineer", "ar": "المهندس", "required": true},
+        {"name": "wbl_attendancestatus", "type": "choice", "choice": "wbl_attendancestatus", "en": "Attendance", "ar": "الحضور"},
+        {"name": "wbl_jointime", "type": "datetime", "en": "Join Time", "ar": "وقت الدخول"},
+        {"name": "wbl_minuteslate", "type": "int", "min": 0, "max": 1440, "en": "Minutes Late", "ar": "دقائق التأخير"},
+        {"name": "wbl_attendancesource", "type": "choice", "choice": "wbl_datasource", "en": "Attendance Source", "ar": "مصدر الحضور"},
+        {"name": "wbl_score", "type": "decimal", "min": 0, "max": 100, "en": "Assessment Score %", "ar": "درجة التقييم %"},
+        {"name": "wbl_scoresource", "type": "choice", "choice": "wbl_datasource", "en": "Score Source", "ar": "مصدر الدرجة"},
+        {"name": "wbl_passed", "type": "bool", "en": "Passed", "ar": "ناجح"},
+        {"name": "wbl_isconfirmed", "type": "bool", "en": "Confirmed by Instructor", "ar": "مؤكد من المدرب"},
+        {"name": "wbl_confirmedbyid", "type": "lookup", "target": "systemuser", "en": "Confirmed By", "ar": "أكده"},
+        {"name": "wbl_confirmedon", "type": "datetime", "en": "Confirmed On", "ar": "تاريخ التأكيد"}
+      ]
+    },
+    {
+      "name": "wbl_rubric", "en": "Rubric", "enPlural": "Rubrics", "ar": "معيار تقييم", "arPlural": "معايير التقييم (Rubrics)",
+      "ownership": "OrganizationOwned", "audit": true, "primary": ["Name", "الاسم"],
+      "br": ["US-13"],
+      "columns": [
+        {"name": "wbl_trackid", "type": "lookup", "target": "wbl_track", "en": "Track", "ar": "المسار"},
+        {"name": "wbl_skillid", "type": "lookup", "target": "wbl_skill", "en": "Skill", "ar": "المهارة"},
+        {"name": "wbl_criteria", "type": "memo", "en": "Criteria", "ar": "المعايير", "max": 20000},
+        {"name": "wbl_maxscore", "type": "int", "min": 1, "max": 1000, "en": "Max Score", "ar": "الدرجة القصوى"},
+        {"name": "wbl_version", "type": "text", "en": "Version", "ar": "الإصدار", "max": 20}
+      ]
+    },
+    {
+      "name": "wbl_assessment", "en": "Assessment Result", "enPlural": "Assessment Results", "ar": "نتيجة تقييم", "arPlural": "نتائج التقييم (الأدلة)",
+      "ownership": "UserOwned", "audit": true, "primary": ["Title", "العنوان"],
+      "br": ["BR-07", "BR-14", "US-07", "US-12", "US-13"],
+      "columns": [
+        {"name": "wbl_engineerid", "type": "lookup", "target": "wbl_engineer", "en": "Engineer", "ar": "المهندس", "required": true},
+        {"name": "wbl_skillid", "type": "lookup", "target": "wbl_skill", "en": "Skill", "ar": "المهارة", "required": true},
+        {"name": "wbl_assessmenttype", "type": "choice", "choice": "wbl_assessmenttype", "en": "Assessment Type", "ar": "نوع التقييم", "required": true},
+        {"name": "wbl_sessionid", "type": "lookup", "target": "wbl_session", "en": "Session", "ar": "الجلسة"},
+        {"name": "wbl_projectid", "type": "lookup", "target": "wbl_project", "en": "Simulated Project", "ar": "المشروع المحاكى"},
+        {"name": "wbl_rubricid", "type": "lookup", "target": "wbl_rubric", "en": "Rubric", "ar": "معيار التقييم"},
+        {"name": "wbl_task", "type": "memo", "en": "Task", "ar": "المهمة"},
+        {"name": "wbl_observation", "type": "memo", "en": "What was observed / engineer actions", "ar": "ما تمت ملاحظته / ما قام به المهندس", "max": 20000},
+        {"name": "wbl_score", "type": "decimal", "min": 0, "max": 1000, "en": "Score", "ar": "الدرجة"},
+        {"name": "wbl_maxscore", "type": "decimal", "min": 0, "max": 1000, "en": "Max Score", "ar": "الدرجة القصوى"},
+        {"name": "wbl_indicativelevel", "type": "int", "min": 1, "max": 7, "en": "Indicative Level (not final)", "ar": "المستوى الاسترشادي (غير نهائي)"},
+        {"name": "wbl_deliverableurl", "type": "url", "en": "Deliverable Link", "ar": "رابط المخرج"},
+        {"name": "wbl_externalsource", "type": "text", "en": "External Source (e.g. Kahoot)", "ar": "المصدر الخارجي (مثل Kahoot)"},
+        {"name": "wbl_supportingonly", "type": "bool", "en": "Supporting Evidence Only", "ar": "دليل داعم فقط"},
+        {"name": "wbl_assessedbyid", "type": "lookup", "target": "systemuser", "en": "Assessed By", "ar": "المُقيّم"},
+        {"name": "wbl_assessedon", "type": "datetime", "en": "Assessed On", "ar": "تاريخ التقييم"}
+      ]
+    },
+    {
+      "name": "wbl_competencyapproval", "en": "Competency Approval", "enPlural": "Competency Approvals", "ar": "اعتماد كفاءة", "arPlural": "اعتمادات الكفاءة",
+      "ownership": "UserOwned", "audit": true, "primary": ["Title", "العنوان"],
+      "br": ["BR-07", "BR-08", "US-02", "US-07", "US-14"],
+      "columns": [
+        {"name": "wbl_engineerid", "type": "lookup", "target": "wbl_engineer", "en": "Engineer", "ar": "المهندس", "required": true},
+        {"name": "wbl_skillid", "type": "lookup", "target": "wbl_skill", "en": "Skill", "ar": "المهارة", "required": true},
+        {"name": "wbl_targetlevel", "type": "int", "min": 1, "max": 7, "en": "Target Level", "ar": "المستوى المستهدف"},
+        {"name": "wbl_approvedlevel", "type": "int", "min": 0, "max": 7, "en": "Approved Level", "ar": "المستوى المعتمد"},
+        {"name": "wbl_gap", "type": "int", "min": -7, "max": 7, "en": "Gap (Target - Approved)", "ar": "الفجوة (المستهدف - المعتمد)"},
+        {"name": "wbl_decision", "type": "choice", "choice": "wbl_approvaldecision", "en": "Decision", "ar": "القرار", "required": true},
+        {"name": "wbl_comments", "type": "memo", "en": "SME Comments", "ar": "ملاحظات الخبير"},
+        {"name": "wbl_approvedbyid", "type": "lookup", "target": "systemuser", "en": "Approved By (SME)", "ar": "اعتمده (الخبير)"},
+        {"name": "wbl_approvedon", "type": "datetime", "en": "Approved On", "ar": "تاريخ الاعتماد"},
+        {"name": "wbl_iscurrent", "type": "bool", "en": "Is Current", "ar": "الحالي"}
+      ]
+    },
+    {
+      "name": "wbl_certificate", "en": "Certificate", "enPlural": "Certificates", "ar": "شهادة", "arPlural": "الشهادات",
+      "ownership": "UserOwned", "audit": true, "primary": ["Certificate No.", "رقم الشهادة"], "autonumber": "NTG-WBL-{DATETIMEUTC:yyyy}-{SEQNUM:5}",
+      "br": ["BR-13", "US-03"],
+      "columns": [
+        {"name": "wbl_engineerid", "type": "lookup", "target": "wbl_engineer", "en": "Engineer", "ar": "المهندس", "required": true},
+        {"name": "wbl_trackid", "type": "lookup", "target": "wbl_track", "en": "Track", "ar": "المسار", "required": true},
+        {"name": "wbl_issuedon", "type": "datetime", "en": "Issued On (time stamp)", "ar": "تاريخ ووقت الإصدار"},
+        {"name": "wbl_certificatestatus", "type": "choice", "choice": "wbl_certificatestatus", "en": "Status", "ar": "الحالة"},
+        {"name": "wbl_certificatefile", "type": "file", "en": "Certificate (PDF)", "ar": "الشهادة (PDF)"},
+        {"name": "wbl_transcriptfile", "type": "file", "en": "Transcript (PDF)", "ar": "كشف الجلسات (PDF)"},
+        {"name": "wbl_issuedbyid", "type": "lookup", "target": "systemuser", "en": "Issued By", "ar": "أصدرها"}
+      ]
+    },
+    {
+      "name": "wbl_toolkititem", "en": "Toolkit Item", "enPlural": "Toolkit Items", "ar": "عنصر أدوات التدريب", "arPlural": "أدوات التدريب",
+      "ownership": "OrganizationOwned", "audit": true, "primary": ["Name", "الاسم"],
+      "br": ["BR-15", "US-17"],
+      "columns": [
+        {"name": "wbl_trackid", "type": "lookup", "target": "wbl_track", "en": "Track", "ar": "المسار"},
+        {"name": "wbl_sessionid", "type": "lookup", "target": "wbl_session", "en": "Session", "ar": "الجلسة"},
+        {"name": "wbl_itemtype", "type": "choice", "choice": "wbl_toolkititemtype", "en": "Item Type", "ar": "نوع العنصر", "required": true},
+        {"name": "wbl_deliverymode", "type": "choice", "choice": "wbl_deliverymode", "en": "Delivery Mode", "ar": "طريقة التقديم"},
+        {"name": "wbl_readiness", "type": "choice", "choice": "wbl_readiness", "en": "Readiness", "ar": "الجاهزية", "required": true},
+        {"name": "wbl_qtyrequired", "type": "int", "min": 0, "max": 100000, "en": "Qty Required", "ar": "الكمية المطلوبة"},
+        {"name": "wbl_qtyready", "type": "int", "min": 0, "max": 100000, "en": "Qty Ready", "ar": "الكمية الجاهزة"},
+        {"name": "wbl_responsible", "type": "text", "en": "Responsible", "ar": "المسؤول"},
+        {"name": "wbl_duedate", "type": "date", "en": "Needed By", "ar": "مطلوب قبل"},
+        {"name": "wbl_notes", "type": "memo", "en": "Notes", "ar": "ملاحظات"}
+      ]
+    },
+    {
+      "name": "wbl_riskrule", "en": "Risk Rule", "enPlural": "Risk Rules", "ar": "قاعدة مخاطر", "arPlural": "قواعد المخاطر",
+      "ownership": "OrganizationOwned", "audit": true, "primary": ["Name", "الاسم"],
+      "br": ["BR-16"],
+      "columns": [
+        {"name": "wbl_metric", "type": "choice", "choice": "wbl_riskmetric", "en": "Metric", "ar": "المؤشر", "required": true},
+        {"name": "wbl_operator", "type": "choice", "choice": "wbl_operator", "en": "Operator", "ar": "المعامل", "required": true},
+        {"name": "wbl_threshold", "type": "decimal", "min": -1000, "max": 1000, "en": "Threshold", "ar": "الحد", "required": true},
+        {"name": "wbl_resultstatus", "type": "choice", "choice": "wbl_riskstatus", "en": "Resulting Status", "ar": "الحالة الناتجة", "required": true},
+        {"name": "wbl_priority", "type": "int", "min": 1, "max": 100, "en": "Priority (1 = first)", "ar": "الأولوية (1 = الأولى)"},
+        {"name": "wbl_isactive", "type": "bool", "en": "Active", "ar": "نشطة"},
+        {"name": "wbl_agreedbymgmt", "type": "bool", "en": "Agreed by Management", "ar": "موافقة الإدارة"},
+        {"name": "wbl_description", "type": "memo", "en": "Description", "ar": "الوصف"}
+      ]
+    },
+    {
+      "name": "wbl_risksnapshot", "en": "Risk Snapshot", "enPlural": "Risk Snapshots", "ar": "لقطة مخاطر", "arPlural": "سجل المخاطر",
+      "ownership": "UserOwned", "audit": false, "primary": ["Title", "العنوان"],
+      "br": ["BR-08", "BR-16"],
+      "columns": [
+        {"name": "wbl_engineerid", "type": "lookup", "target": "wbl_engineer", "en": "Engineer", "ar": "المهندس", "required": true},
+        {"name": "wbl_sprintid", "type": "lookup", "target": "wbl_sprint", "en": "Sprint", "ar": "السبرنت"},
+        {"name": "wbl_riskstatus", "type": "choice", "choice": "wbl_riskstatus", "en": "Risk Status", "ar": "حالة المخاطر"},
+        {"name": "wbl_reason", "type": "memo", "en": "Reason", "ar": "السبب"},
+        {"name": "wbl_calculatedon", "type": "datetime", "en": "Calculated On", "ar": "تاريخ الحساب"},
+        {"name": "wbl_openflags", "type": "int", "min": 0, "max": 10000, "en": "Open Flags", "ar": "التنبيهات المفتوحة"},
+        {"name": "wbl_attendancerate", "type": "decimal", "min": 0, "max": 100, "en": "Attendance Rate %", "ar": "نسبة الحضور %"},
+        {"name": "wbl_punctualityrate", "type": "decimal", "min": 0, "max": 100, "en": "Punctuality Rate %", "ar": "نسبة الالتزام بالوقت %"},
+        {"name": "wbl_avgscore", "type": "decimal", "min": 0, "max": 100, "en": "Average Score %", "ar": "متوسط الدرجات %"},
+        {"name": "wbl_maxgap", "type": "int", "min": -7, "max": 7, "en": "Max Skill Gap", "ar": "أكبر فجوة"}
+      ]
+    },
+    {
+      "name": "wbl_uistring", "en": "UI String", "enPlural": "UI Strings", "ar": "نص الواجهة", "arPlural": "نصوص الواجهة",
+      "ownership": "OrganizationOwned", "audit": false, "primary": ["Key", "المفتاح"],
+      "br": ["Constraint: English and Arabic UI"],
+      "columns": [
+        {"name": "wbl_english", "type": "text", "en": "English", "ar": "الإنجليزية", "max": 400},
+        {"name": "wbl_arabic", "type": "text", "en": "Arabic", "ar": "العربية", "max": 400}
+      ]
+    }
+  ]
+}
