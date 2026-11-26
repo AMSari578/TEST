@@ -5,7 +5,7 @@
 
 | الملف | المحتوى |
 |---|---|
-| [`dataverse/schema.json`](dataverse/schema.json) | نموذج البيانات كاملاً (25 جدول + 26 خيار) — المصدر الوحيد للحقيقة |
+| [`dataverse/schema.json`](dataverse/schema.json) | نموذج البيانات كاملاً (25 جدول + 25 خيار) — المصدر الوحيد للحقيقة |
 | [`tools/dataverse_schema.py`](tools/dataverse_schema.py) | سكربت ينشئ الجداول والأعمدة والعلاقات في Dataverse تلقائياً ويعبّئ البيانات الأولية |
 | [`data/*.csv`](data/) | بيانات أولية (المسارات، المهارات، قواعد التنبيه، قواعد المخاطر، نصوص الواجهة عربي/إنجليزي) |
 | [`docs/01-data-model.md`](docs/01-data-model.md) | قاموس البيانات + مخطط العلاقات (مولّد من schema.json) |
